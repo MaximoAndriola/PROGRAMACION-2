@@ -8,8 +8,8 @@ public class Revista extends Material implements I_Prestable {
     protected boolean aColor;
     protected Estado estado;
 
-    public Revista(String titulo, String autor, String anio, boolean aColor) {
-        super(TipoMaterial.REVISTA, titulo, autor, anio);
+    public Revista(String titulo, String autor, String anio, boolean aColor, double precio) {
+        super(TipoMaterial.REVISTA, titulo, autor, anio, precio);
         this.aColor = aColor;
         this.estado = Estado.DISPONIBLE;
     }

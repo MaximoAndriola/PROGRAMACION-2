@@ -10,8 +10,8 @@ public class Libro extends Material implements I_Prestable {
     protected Genero genero;
     protected Estado estado;
 
-    public Libro(String titulo, String autor, String anio, String cantPaginas, Genero genero) {
-        super(TipoMaterial.LIBRO, titulo, autor, anio);
+    public Libro(String titulo, String autor, String anio, String cantPaginas, Genero genero, double precio) {
+        super(TipoMaterial.LIBRO, titulo, autor, anio, precio);
         this.cantPaginas = cantPaginas;
         this.genero = genero;
         this.estado = Estado.DISPONIBLE;
@@ -26,8 +26,19 @@ public class Libro extends Material implements I_Prestable {
 
     @Override
     public void devolver() {
-        if(estado.equals(Estado.PRESTADO)){
+        if(estado.equals(Estado.PRESTADO)) {
             estado = Estado.DISPONIBLE;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                ", titulo='" + titulo + '\'' +
+                ", genero=" + genero +
+                ", autor='" + autor + '\'' +
+                ", anio='" + anio + '\'' +
+                ", tipo=" + tipo +
+                '}';
     }
 }

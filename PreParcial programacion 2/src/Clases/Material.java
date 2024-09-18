@@ -7,14 +7,16 @@ public abstract class Material implements Comparable<Material>{
     protected String titulo;
     protected String autor;
     protected String anio;
+    protected Double precio;
     protected TipoMaterial tipo;
     public static int cantMateriales;
 
-    public Material(TipoMaterial tipo, String titulo, String autor, String anio) {
+    public Material(TipoMaterial tipo, String titulo, String autor, String anio, double precio) {
         this.tipo = tipo;
         this.titulo = titulo;
         this.autor = autor;
         this.anio = anio;
+        this.precio = precio;
     }
 
     public int getID() {
@@ -58,4 +60,18 @@ public abstract class Material implements Comparable<Material>{
         return this.titulo.compareTo(o.titulo);
     }
 
+    public int compareTo(Double precio){
+        return this.precio.compareTo(precio);
+    }
+
+    @Override
+    public String toString() {
+        return "Material{" +
+                "ID=" + ID +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", anio='" + anio + '\'' +
+                ", tipo=" + tipo +
+                '}';
+    }
 }

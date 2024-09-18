@@ -1,7 +1,6 @@
 package Clases;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Biblioteca {
     private ArrayList<Material> catalogo;
@@ -17,7 +16,8 @@ public class Biblioteca {
     public String eliminarMaterial(String titulo){
         String mensaje = "El elemento a eliminar no se encontro en la lista";
 
-        for(Material m : catalogo){
+        for(int i = 0; i < catalogo.size(); i++){
+            Material m = catalogo.get(i);
             if(m.titulo.equalsIgnoreCase(titulo)){
                 catalogo.remove(m);
                 mensaje = "El elemento se encontro y se elimino";
@@ -26,8 +26,26 @@ public class Biblioteca {
         return mensaje;
     }
 
-    public void ordenar(ArrayList<Material> biblioteca){
-        Collections.sort(biblioteca);
+    public boolean modificarMaterial(String titulo, Material nuevoM){
+        for (int i = 0; i < catalogo.size(); i++){
+            Material m = catalogo.get(i);
+            if(m.titulo.equals(titulo)){
+                catalogo.remove(m);
+                catalogo.add(nuevoM);
+                return true;
+            }
+        }
+        return false;
     }
 
+    public void ordenarTitulo(Biblioteca biblioteca){
+        Collections.sort(biblioteca.catalogo);
+    }
+
+    @Override
+    public String toString() {
+        return "Biblioteca{" +
+                "catalogo=" + catalogo +
+                '}';
+    }
 }
