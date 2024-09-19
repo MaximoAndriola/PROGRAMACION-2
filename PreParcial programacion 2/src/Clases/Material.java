@@ -1,5 +1,6 @@
 package Clases;
 
+import Enumeradores.TipoComparacion;
 import Enumeradores.TipoMaterial;
 
 public abstract class Material implements Comparable<Material>{
@@ -55,15 +56,13 @@ public abstract class Material implements Comparable<Material>{
         this.tipo = tipo;
     }
 
+    //Metodos
     @Override
     public int compareTo(Material o) {
-        return this.titulo.compareTo(o.titulo);
+        return o.titulo.compareTo(this.titulo);
     }
 
-    public int compareTo(Double precio){
-        return this.precio.compareTo(precio);
-    }
-
+    //ToString
     @Override
     public String toString() {
         return "Material{" +

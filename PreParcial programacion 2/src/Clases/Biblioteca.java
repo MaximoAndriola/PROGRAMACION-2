@@ -1,9 +1,13 @@
 package Clases;
 
+import Enumeradores.Genero;
+import Enumeradores.TipoComparacion;
+
 import java.util.*;
 
 public class Biblioteca {
     private ArrayList<Material> catalogo;
+    TipoComparacion comparador;
 
     public Biblioteca() {
         this.catalogo = new ArrayList<>();
@@ -40,6 +44,20 @@ public class Biblioteca {
 
     public void ordenarTitulo(Biblioteca biblioteca){
         Collections.sort(biblioteca.catalogo);
+    }
+
+    public List<Libro> filtrarLibrosPorGenero(Genero genero){
+        List<Libro> librosFiltrados = new ArrayList<>();
+
+        for(Material m : catalogo){
+            if (m instanceof Libro l){
+                if (l.getGenero().equals(genero)){
+                    librosFiltrados.add(l);
+                }
+            }
+        }
+
+        return librosFiltrados;
     }
 
     @Override

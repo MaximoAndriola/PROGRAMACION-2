@@ -17,6 +17,30 @@ public class Libro extends Material implements I_Prestable {
         this.estado = Estado.DISPONIBLE;
     }
 
+    public String getCantPaginas() {
+        return cantPaginas;
+    }
+
+    public void setCantPaginas(String cantPaginas) {
+        this.cantPaginas = cantPaginas;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
     @Override
     public void prestar() {
         if(estado.equals(Estado.DISPONIBLE)){
