@@ -2,12 +2,18 @@ package Clases;
 
 import Enumeradores.Genero;
 import Enumeradores.TipoComparacion;
+import Interfaces.I_Prestable;
 
+import java.security.PublicKey;
 import java.util.*;
 
 public class Biblioteca {
     private ArrayList<Material> catalogo;
     TipoComparacion comparador;
+
+    public ArrayList<Material> getCatalogo() {
+        return catalogo;
+    }
 
     public Biblioteca() {
         this.catalogo = new ArrayList<>();
@@ -58,6 +64,26 @@ public class Biblioteca {
         }
 
         return librosFiltrados;
+    }
+
+    public void prestable (Material m){
+        //Se verifica que sea un material prestable
+            if(m instanceof I_Prestable){
+                boolean prestado = ((I_Prestable) m).prestar();
+                if(!prestado){
+                    ((I_Prestable) m).devolver();
+                }
+            }
+    }
+
+    public Material filtrarTitulo(ArrayList<Material> materiales, String titulo){
+        Material material = null;
+        for (Material m : materiales){
+            if(m.titulo.equals(titulo)){
+                material = m;
+            }
+        }
+        return material;
     }
 
     @Override

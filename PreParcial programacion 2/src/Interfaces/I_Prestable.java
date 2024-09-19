@@ -1,6 +1,6 @@
 package Interfaces;
 
 public interface I_Prestable {
-    void prestar();
+    boolean prestar();
     void devolver();
 }

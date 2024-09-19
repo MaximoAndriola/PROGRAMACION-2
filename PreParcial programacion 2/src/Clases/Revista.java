@@ -23,10 +23,13 @@ public class Revista extends Material implements I_Prestable {
     }
 
     @Override
-    public void prestar() {
+    public boolean prestar() {
+        boolean prestado = false;
         if (estado.equals(Estado.DISPONIBLE)){
             estado = Estado.PRESTADO;
+            prestado = true;
         }
+        return prestado;
     }
 
     @Override
@@ -34,5 +37,18 @@ public class Revista extends Material implements I_Prestable {
         if(estado.equals(Estado.PRESTADO)){
             estado = Estado.DISPONIBLE;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Revista{" +
+                "aColor=" + aColor +
+                ", estado=" + estado +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", anio='" + anio + '\'' +
+                ", precio=" + precio +
+                ", tipo=" + tipo +
+                '}';
     }
 }

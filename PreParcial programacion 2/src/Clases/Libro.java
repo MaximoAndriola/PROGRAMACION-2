@@ -42,10 +42,13 @@ public class Libro extends Material implements I_Prestable {
     }
 
     @Override
-    public void prestar() {
+    public boolean prestar() {
+        boolean prestado = false;
         if(estado.equals(Estado.DISPONIBLE)){
             estado = Estado.PRESTADO;
+            prestado = true;
         }
+        return prestado;
     }
 
     @Override
@@ -58,6 +61,7 @@ public class Libro extends Material implements I_Prestable {
     @Override
     public String toString() {
         return "Libro{" +
+                "Prestado" + estado + '\'' +
                 ", titulo='" + titulo + '\'' +
                 ", genero=" + genero +
                 ", autor='" + autor + '\'' +
